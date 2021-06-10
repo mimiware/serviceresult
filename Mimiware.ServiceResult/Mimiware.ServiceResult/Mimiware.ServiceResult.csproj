@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <Company>Mimiware</Company>
+    <Authors>Mikael Saras &amp; Mikael Johansson</Authors>
+    <PackageTags>Service Results</PackageTags>
+    <RepositoryUrl>https://github.com/mimiware/serviceresult</RepositoryUrl>
+    <NeutralLanguage>en</NeutralLanguage>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
 </Project>
