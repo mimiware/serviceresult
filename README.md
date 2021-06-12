@@ -1,3 +1,5 @@
+![ci pipeline](https://github.com/mimiware/serviceresult/actions/workflows/dotnet.yml/badge.svg)
+
 # Service Results
 
 A generic service result library for your service layer.
