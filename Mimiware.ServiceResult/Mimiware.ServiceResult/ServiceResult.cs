@@ -4,7 +4,7 @@
     /// Typed service result
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public interface IServiceResult<T>
+    public interface IServiceResult<T> : IServiceResult
     {
         /// <summary>
         /// Result data/content
@@ -12,22 +12,7 @@
         T Data { get; set; }
 
         /// <summary>
-        /// Checks if the operation was successful or not
-        /// </summary>
-        bool IsSuccessCode { get; }
-
-        /// <summary>
-        /// Service result code
-        /// </summary>
-        int Code { get; set; }
-
-        /// <summary>
-        /// Error message content
-        /// </summary>
-        IServiceResultError ErrorMessage { get; set; }
-
-        /// <summary>
-        /// Creates a successful result
+        /// Creates a successful result, with content of type T
         /// </summary>
         /// <param name="content"></param>
         /// <param name="code"></param>
@@ -46,19 +31,16 @@
     }
 
     /// <inheritdoc cref="IServiceResult{T}"/>
-    public class ServiceResult<T> : ServiceResultBase, IServiceResult<T>
+    public class ServiceResult<T> : ServiceResult, IServiceResult<T>
     {
         public T Data { get; set; }
 
-        public bool IsSuccessCode => Code == ServiceResultCode.Ok;
-
         public IServiceResult<T> Ok(T content, int code = ServiceResultCode.Ok)
         {
-            return new ServiceResult<T>
-            {
-                Code = code,
-                Data = content
-            };
+            Data = content;
+            Code = code;
+
+            return this;
         }
 
         public IServiceResult<T> Error(
@@ -76,7 +58,7 @@
     /// <summary>
     /// Service result without data/content
     /// </summary>
-    public interface IServiceResultBase
+    public interface IServiceResult
     {
         /// <summary>
         /// Service result code
@@ -84,8 +66,17 @@
         int Code { get; set; }
 
         /// <summary>
+        /// Checks if the operation was successful or not
+        /// </summary>
+        /// <returns>Returns TRUE if Code is <see cref="ServiceResultCode.Ok"/>, <see cref="ServiceResultCode.OkCreated"/>
+        /// or <see cref="ServiceResultCode.OkNoContent"/>, otherwise false
+        /// </returns>
+        bool IsSuccessCode { get; }
+
+        /// <summary>
         /// Error message content
         /// </summary>
+        /// <inheritdoc cref="IServiceResult"/>
         IServiceResultError ErrorMessage { get; set; }
 
         /// <summary>
@@ -93,62 +84,29 @@
         /// </summary>
         /// <param name="code"></param>
         /// <returns></returns>
-        IServiceResultBase Ok(int code = ServiceResultCode.Ok);
+        IServiceResult Ok(int code = ServiceResultCode.Ok);
     }
 
-    /// <inheritdoc cref="IServiceResultBase"/>
-    public class ServiceResultBase : IServiceResultBase
+    /// <inheritdoc cref="IServiceResult"/>
+    public class ServiceResult : IServiceResult
     {
         public int Code { get; set; }
+
         public IServiceResultError ErrorMessage { get; set; }
 
-        public IServiceResultBase Ok(int code = ServiceResultCode.Ok)
+        public bool IsSuccessCode => 
+            Code == ServiceResultCode.Ok || 
+            Code == ServiceResultCode.OkCreated || 
+            Code == ServiceResultCode.OkNoContent;
+
+        public IServiceResult Ok(int code = ServiceResultCode.Ok)
         {
-            return new ServiceResultBase
-            {
-                Code = code
-            };
+            Code = code;
+            return this;
         }
     }
 
-    /// <summary>
-    /// Service result error
-    /// </summary>
-    public interface IServiceResultError
-    {
-        /// <summary>
-        /// Error message
-        /// </summary>
-        string ErrorMessage { get; set; }
-    }
 
 
-    /// <inheritdoc cref="IServiceResultError"/>
-    public class ServiceResultError : IServiceResultError
-    {
-        public string ErrorMessage { get; set; }
 
-        public ServiceResultError(string message)
-        {
-            ErrorMessage = message;
-        }
-    }
-
-    /// <summary>
-    /// Pre-defined service result codes
-    /// </summary>
-    public static class ServiceResultCode
-    {
-        public const int Ok = 200;
-        public const int OkCreated = 201;
-        public const int OkNoContent = 204;
-        public const int BadRequest = 400;
-        public const int UnAuthorized = 401;
-        public const int Forbidden = 403;
-        public const int NotFound = 404;
-        public const int Conflict = 409;
-        public const int Gone = 410;
-        public const int InternalError = 500;
-        public const int ServiceUnavailable = 503;
-    }
 }
