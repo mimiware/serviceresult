@@ -58,6 +58,43 @@ namespace Mimiware.ServiceResult.Tests
             Assert.True(result.IsSuccessCode);
         }
 
+        [Fact]
+        public void ServiceErrorResult_WithData()
+        {
+            var result = new ServiceResult<object>();
+
+            const string errorMessage = "Failed";
+            var errorResult = result.Error(message:errorMessage);
+
+            Assert.False(errorResult.IsSuccessCode);
+            Assert.Equal(errorMessage, errorResult.ErrorMessage.ErrorMessage);
+        }
+
+        [Fact]
+        public void ServiceErrorResult_WithoutData()
+        {
+            var result = new ServiceResult();
+
+            const string errorMessage = "Failed";
+            var errorResult = result.Error(errorMessage);
+
+            Assert.False(errorResult.IsSuccessCode);
+            Assert.Equal(errorMessage, errorResult.ErrorMessage.ErrorMessage);
+        }
+
+        [Fact]
+        public void ServiceErrorResult_CustomCodeWithoutData()
+        {
+            var result = new ServiceResult();
+
+            const string errorMessage = "Failed";
+            var errorResult = result.Error(errorMessage, ServiceResultCode.BadRequest);
+
+            Assert.False(errorResult.IsSuccessCode);
+            Assert.Equal(ServiceResultCode.BadRequest, errorResult.Code);
+            Assert.Equal(errorMessage, errorResult.ErrorMessage.ErrorMessage);
+        }
+
         [Theory]
         [MemberData(nameof(ServiceResultCodeTestData))]
         public void ServiceResultCodeTests(int code, bool isSuccessCode)
