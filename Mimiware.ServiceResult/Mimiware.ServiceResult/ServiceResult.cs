@@ -104,9 +104,13 @@
             Code = code;
             return this;
         }
+
+        public IServiceResult Error(string message, int code = ServiceResultCode.InternalError)
+        {
+            Code = code;
+            ErrorMessage = new ServiceResultError(message);
+            return this;
+        }
     }
-
-
-
 
 }
