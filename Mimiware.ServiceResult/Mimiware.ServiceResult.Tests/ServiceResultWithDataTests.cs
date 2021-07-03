@@ -22,8 +22,10 @@ namespace Mimiware.ServiceResult.Tests
         public void OkResult_WithContentNotCreatedByConstructor()
         {
             // Arrange
-            var result = new ServiceResult<TestReturnObject>();
-            result.Data = new TestReturnObject();
+            var result = new ServiceResult<TestReturnObject>
+            {
+                Data = new TestReturnObject()
+            };
 
             // Act
             var returnValue = result.Ok();
