@@ -1,13 +1,30 @@
 ![build](https://github.com/mimiware/serviceresult/actions/workflows/dotnet.yml/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/mimiware/serviceresult/badge.svg?branch=main)](https://coveralls.io/github/mimiware/serviceresult?branch=main)
 ![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=mimiware_serviceresult&metric=sqale_rating)
-![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=mimiware_serviceresult&metric=alert_status)
 
-# Service Results
+# Service Result
 
-ServiceResult is a slim generic service result library for your service (domain) layer. By using a generic service result, your application will have a good interface towards the service layer. The service layer will also be easy to unit test.
+ServiceResult is a minimalistic generic service result library for your service (domain) layer. By using a generic service result, your application will have a good interface towards the service layer. The service layer will also be easy to unit test.
 
 The library consists of ~150 lines of code, is unit tested and proven in use since 2008 at multiple big companies.
+
+## Add Mimiware.ServiceResult to your project
+
+Add directly to your csproj-file:
+
+```
+<PackageReference Include="Mimiware.ServiceResult" Version="1.1.0" />
+```
+
+or through Package Manager in Visual Studio:
+```
+Install-Package Mimiware.ServiceResult -Version 1.1.0
+```
+
+or through .NET Cli:
+```
+dotnet add package Mimiware.ServiceResult --version 1.1.0
+```
 
 ## Example usage
 
