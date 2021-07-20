@@ -1,6 +1,7 @@
 ![build](https://github.com/mimiware/serviceresult/actions/workflows/dotnet.yml/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/mimiware/serviceresult/badge.svg?branch=main)](https://coveralls.io/github/mimiware/serviceresult?branch=main)
 ![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=mimiware_serviceresult&metric=sqale_rating)
+[![Code smells](https://sonarcloud.io/api/project_badges/measure?project=mimiware_serviceresult&metric=code_smells)](https://sonarcloud.io/dashboard?id=mimiware_serviceresult)
 
 # Service Result
 
