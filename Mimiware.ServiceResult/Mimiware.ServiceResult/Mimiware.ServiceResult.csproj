@@ -10,8 +10,8 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.2.0</Version>
-    <PackageReleaseNotes>Added more service result codes.</PackageReleaseNotes>
+    <Version>1.3.0</Version>
+    <PackageReleaseNotes>Contains more improvements.</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>

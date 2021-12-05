@@ -110,7 +110,6 @@ namespace Mimiware.ServiceResult.Tests
             Assert.Equal(isSuccessCode, result.IsSuccessCode);
         }
 
-
         /// <summary>
         /// 
         /// </summary>
@@ -128,8 +127,28 @@ namespace Mimiware.ServiceResult.Tests
             yield return new object[] { ServiceResultCode.NotFound, false };
             yield return new object[] { ServiceResultCode.ServiceUnavailable, false };
             yield return new object[] { ServiceResultCode.UnAuthorized, false };
+        }
 
+        [Fact]
+        public void ServiceResultError_TypedResult_WithMessage()
+        {
+            IServiceResult<object> result = new ServiceResult<object>();
 
+            const string message = "Failed to get Id";
+            var errorResult = result.Error(message);
+
+            Assert.Equal(message, errorResult.ErrorMessage.ErrorMessage);
+        }
+
+        [Fact]
+        public void ServiceResultError_TypedResult_WithoutParameters()
+        {
+            IServiceResult<object> result = new ServiceResult<object>();
+
+            var errorResult = result.Error();
+
+            Assert.Equal(ServiceResultCode.InternalError, errorResult.Code);
+            Assert.Null(errorResult?.ErrorMessage.ErrorMessage);
         }
     }
 }
