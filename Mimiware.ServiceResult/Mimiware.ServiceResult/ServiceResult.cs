@@ -28,6 +28,9 @@
         IServiceResult<T> Error(
             int code = ServiceResultCode.InternalError,
             string message = null);
+
+        IServiceResult<T> Error(
+            string message);
     }
 
     /// <inheritdoc cref="IServiceResult{T}"/>
@@ -50,6 +53,16 @@
             return new ServiceResult<T>
             {
                 Code = code,
+                ErrorMessage = new ServiceResultError(message)
+            };
+        }
+
+        public IServiceResult<T> Error(
+            string message)
+        {
+            return new ServiceResult<T>
+            {
+                Code = ServiceResultCode.InternalError,
                 ErrorMessage = new ServiceResultError(message)
             };
         }
