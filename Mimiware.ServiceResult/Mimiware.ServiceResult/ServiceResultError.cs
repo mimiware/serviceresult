@@ -30,5 +30,13 @@ namespace Mimiware.ServiceResult
         {
             ErrorMessage = message;
         }
+
+        /// <summary>
+        /// Error message
+        /// </summary>
+        public override string ToString()
+        {
+            return ErrorMessage;
+        }
     }
 }

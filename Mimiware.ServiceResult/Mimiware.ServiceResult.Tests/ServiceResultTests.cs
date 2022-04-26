@@ -150,5 +150,15 @@ namespace Mimiware.ServiceResult.Tests
             Assert.Equal(ServiceResultCode.InternalError, errorResult.Code);
             Assert.Null(errorResult?.ErrorMessage.ErrorMessage);
         }
+
+        [Fact]
+        public void ServiceResultError_ShouldReturnErrorMessageWhenInterpolated()
+        {
+            IServiceResult<object> result = new ServiceResult<object>();
+
+            var errorResult = result.Error($"A very specific error occurred.");
+
+            Assert.Equal(errorResult.ErrorMessage.ErrorMessage, $"{errorResult.ErrorMessage}");
+        }
     }
 }
