@@ -26,10 +26,10 @@ jobs:
       with:
         dotnet-version: 3.1.x
 
-    - name: Setup .NET 5
+    - name: Setup .NET6
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.x
+        dotnet-version: 6.0.x
 
     - name: Restore dependencies
       run: dotnet restore
@@ -41,8 +41,8 @@ jobs:
     - name: Build
       run: dotnet build --no-restore --configuration Release
 
-    - name: Test & Coverage
-      run: dotnet test --no-build --verbosity normal --framework net5.0 /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+    - name: Test
+      run: dotnet test --no-build --verbosity normal --framework net6.0
 
     - name: Create NuGet
       run: dotnet pack -p:PackageVersion=${{ steps.vars.outputs.release_version }} -c Release -o out
