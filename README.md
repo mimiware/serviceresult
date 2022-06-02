@@ -7,24 +7,24 @@
 
 ServiceResult is a minimalistic generic service result library for your service (domain) layer. By using a generic service result, your application will have a good interface towards the service layer. The service layer will also be easy to unit test.
 
-The library consists of ~150 lines of code, is unit tested and proven in use since 2008 at multiple big companies.
+The library consists of ~150 lines of code, is 100% unit tested and proven in use since 2008 at multiple big companies. It's well suited for critical enterprise systems.
 
 ## Add Mimiware.ServiceResult to your project
 
 Add directly to your csproj-file:
 
 ```
-<PackageReference Include="Mimiware.ServiceResult" Version="1.1.0" />
+<PackageReference Include="Mimiware.ServiceResult" Version="1.4.1" />
 ```
 
 or through Package Manager in Visual Studio:
 ```
-Install-Package Mimiware.ServiceResult -Version 1.1.0
+Install-Package Mimiware.ServiceResult -Version 1.4.1
 ```
 
 or through .NET Cli:
 ```
-dotnet add package Mimiware.ServiceResult --version 1.1.0
+dotnet add package Mimiware.ServiceResult --version 1.4.1
 ```
 
 ## Example usage
