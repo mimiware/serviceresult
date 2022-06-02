@@ -1,0 +1,1 @@
+ServiceResult is a minimalistic generic service result library for your service (domain) layer. It has been proven in use in large high-performance enterprise systems since 2008.
