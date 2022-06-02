@@ -42,7 +42,7 @@ jobs:
       run: dotnet build --no-restore --configuration Release
 
     - name: Test
-      run: dotnet test --no-build --verbosity normal --framework net6.0
+      run: dotnet test --no-build --configuration Release --verbosity normal --framework net6.0
 
     - name: Create NuGet
       run: dotnet pack -p:PackageVersion=${{ steps.vars.outputs.release_version }} -c Release -o out
