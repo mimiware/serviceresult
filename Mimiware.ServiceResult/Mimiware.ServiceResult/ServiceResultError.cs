@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Mimiware.ServiceResult
+﻿namespace Mimiware.ServiceResult
 {
     /// <summary>
     /// Service result error
@@ -14,7 +10,6 @@ namespace Mimiware.ServiceResult
         /// </summary>
         string ErrorMessage { get; set; }
     }
-
 
     /// <inheritdoc cref="IServiceResultError"/>
     public class ServiceResultError : IServiceResultError
