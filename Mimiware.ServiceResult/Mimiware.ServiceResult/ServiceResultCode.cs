@@ -1,5 +1,4 @@
-﻿
-namespace Mimiware.ServiceResult
+﻿namespace Mimiware.ServiceResult
 {
     /// <summary>
     /// Pre-defined service result codes
@@ -18,6 +17,7 @@ namespace Mimiware.ServiceResult
         public const int Conflict = 409;
         public const int Gone = 410;
         public const int InternalError = 500;
+        public const int BadGateway = 502;
         public const int ServiceUnavailable = 503;
     }
 }

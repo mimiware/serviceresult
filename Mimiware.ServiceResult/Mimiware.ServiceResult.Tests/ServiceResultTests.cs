@@ -127,6 +127,7 @@ namespace Mimiware.ServiceResult.Tests
             yield return new object[] { ServiceResultCode.NotFound, false };
             yield return new object[] { ServiceResultCode.ServiceUnavailable, false };
             yield return new object[] { ServiceResultCode.UnAuthorized, false };
+            yield return new object[] { ServiceResultCode.BadGateway, false };
         }
 
         [Fact]

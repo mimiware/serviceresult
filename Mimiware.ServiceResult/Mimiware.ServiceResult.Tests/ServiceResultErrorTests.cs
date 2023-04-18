@@ -17,7 +17,7 @@ namespace Mimiware.ServiceResult.Tests
         public void ServiceResultError_ShouldReturnErrorMessageWhenInterpolated()
         {
             IServiceResultError error = new ServiceResultError("A very specific error occurred.");
-            
+
             Assert.Equal(error.ErrorMessage, $"{error}");
         }
     }
