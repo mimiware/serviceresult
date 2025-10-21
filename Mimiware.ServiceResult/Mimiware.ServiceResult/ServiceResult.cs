@@ -107,9 +107,9 @@
 
         public IServiceResultError ErrorMessage { get; set; }
 
-        public bool IsSuccessCode => 
-            Code == ServiceResultCode.Ok || 
-            Code == ServiceResultCode.OkCreated || 
+        public bool IsSuccessCode =>
+            Code == ServiceResultCode.Ok ||
+            Code == ServiceResultCode.OkCreated ||
             Code == ServiceResultCode.OkNoContent;
 
         public IServiceResult Ok(int code = ServiceResultCode.Ok)

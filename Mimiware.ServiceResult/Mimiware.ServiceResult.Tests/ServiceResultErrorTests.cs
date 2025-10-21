@@ -7,10 +7,10 @@ namespace Mimiware.ServiceResult.Tests
         [Fact]
         public void ServiceResultError_WithMessage()
         {
-            const string expectedMessage = "Failed";
-            IServiceResultError error = new ServiceResultError(expectedMessage);
+            const string ExpectedMessage = "Failed";
+            IServiceResultError error = new ServiceResultError(ExpectedMessage);
 
-            Assert.Equal(expectedMessage, error.ErrorMessage);
+            Assert.Equal(ExpectedMessage, error.ErrorMessage);
         }
 
         [Fact]
