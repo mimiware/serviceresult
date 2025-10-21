@@ -23,7 +23,7 @@ namespace Mimiware.ServiceResult.Tests
         public void OkResult_NotCreatedByConstructor()
         {
             // Arrange
-            var result = new ServiceResult {Code = ServiceResultCode.Ok};
+            var result = new ServiceResult { Code = ServiceResultCode.Ok };
 
             // Assert
             Assert.Equal(ServiceResultCode.Ok, result.Code);
@@ -63,11 +63,11 @@ namespace Mimiware.ServiceResult.Tests
         {
             var result = new ServiceResult<object>();
 
-            const string errorMessage = "Failed";
-            var errorResult = result.Error(message:errorMessage);
+            const string ErrorMessage = "Failed";
+            var errorResult = result.Error(message: ErrorMessage);
 
             Assert.False(errorResult.IsSuccessCode);
-            Assert.Equal(errorMessage, errorResult.ErrorMessage.ErrorMessage);
+            Assert.Equal(ErrorMessage, errorResult.ErrorMessage.ErrorMessage);
         }
 
         [Fact]
@@ -75,11 +75,11 @@ namespace Mimiware.ServiceResult.Tests
         {
             var result = new ServiceResult();
 
-            const string errorMessage = "Failed";
-            var errorResult = result.Error(errorMessage);
+            const string ErrorMessage = "Failed";
+            var errorResult = result.Error(ErrorMessage);
 
             Assert.False(errorResult.IsSuccessCode);
-            Assert.Equal(errorMessage, errorResult.ErrorMessage.ErrorMessage);
+            Assert.Equal(ErrorMessage, errorResult.ErrorMessage.ErrorMessage);
         }
 
         [Fact]
@@ -87,12 +87,12 @@ namespace Mimiware.ServiceResult.Tests
         {
             var result = new ServiceResult();
 
-            const string errorMessage = "Failed";
-            var errorResult = result.Error(errorMessage, ServiceResultCode.BadRequest);
+            const string ErrorMessage = "Failed";
+            var errorResult = result.Error(ErrorMessage, ServiceResultCode.BadRequest);
 
             Assert.False(errorResult.IsSuccessCode);
             Assert.Equal(ServiceResultCode.BadRequest, errorResult.Code);
-            Assert.Equal(errorMessage, errorResult.ErrorMessage.ErrorMessage);
+            Assert.Equal(ErrorMessage, errorResult.ErrorMessage.ErrorMessage);
         }
 
         [Theory]
@@ -116,12 +116,12 @@ namespace Mimiware.ServiceResult.Tests
         /// <returns></returns>
         public static IEnumerable<object[]> ServiceResultCodeTestData()
         {
-            yield return new object[] {ServiceResultCode.OkCreated, true};
-            yield return new object[] {ServiceResultCode.Ok, true}; 
-            yield return new object[] {ServiceResultCode.OkNoContent, true};
-            yield return new object[] {ServiceResultCode.BadRequest, false};
-            yield return new object[] {ServiceResultCode.Conflict, false};
-            yield return new object[] {ServiceResultCode.Forbidden, false };
+            yield return new object[] { ServiceResultCode.OkCreated, true };
+            yield return new object[] { ServiceResultCode.Ok, true };
+            yield return new object[] { ServiceResultCode.OkNoContent, true };
+            yield return new object[] { ServiceResultCode.BadRequest, false };
+            yield return new object[] { ServiceResultCode.Conflict, false };
+            yield return new object[] { ServiceResultCode.Forbidden, false };
             yield return new object[] { ServiceResultCode.Gone, false };
             yield return new object[] { ServiceResultCode.InternalError, false };
             yield return new object[] { ServiceResultCode.NotFound, false };
@@ -135,10 +135,10 @@ namespace Mimiware.ServiceResult.Tests
         {
             IServiceResult<object> result = new ServiceResult<object>();
 
-            const string message = "Failed to get Id";
-            var errorResult = result.Error(message);
+            const string Message = "Failed to get Id";
+            var errorResult = result.Error(Message);
 
-            Assert.Equal(message, errorResult.ErrorMessage.ErrorMessage);
+            Assert.Equal(Message, errorResult.ErrorMessage.ErrorMessage);
         }
 
         [Fact]
@@ -149,7 +149,7 @@ namespace Mimiware.ServiceResult.Tests
             var errorResult = result.Error();
 
             Assert.Equal(ServiceResultCode.InternalError, errorResult.Code);
-            Assert.Null(errorResult?.ErrorMessage.ErrorMessage);
+            Assert.Null(errorResult?.ErrorMessage);
         }
 
         [Fact]
@@ -157,7 +157,7 @@ namespace Mimiware.ServiceResult.Tests
         {
             IServiceResult<object> result = new ServiceResult<object>();
 
-            var errorResult = result.Error($"A very specific error occurred.");
+            var errorResult = result.Error("A very specific error occurred.");
 
             Assert.Equal(errorResult.ErrorMessage.ErrorMessage, $"{errorResult.ErrorMessage}");
         }

@@ -64,5 +64,7 @@ namespace Mimiware.ServiceResult.Tests
         }
     }
 
-    public class TestReturnObject {}
+#pragma warning disable S2094 // Classes should not be empty
+    public class TestReturnObject { }
+#pragma warning restore S2094 // Classes should not be empty
 }
