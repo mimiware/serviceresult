@@ -53,7 +53,9 @@
             return new ServiceResult<T>
             {
                 Code = code,
-                ErrorMessage = new ServiceResultError(message)
+                ErrorMessage = message != null
+                ? new ServiceResultError(message)
+                : null
             };
         }
 
