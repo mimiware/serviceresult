@@ -83,8 +83,7 @@
         /// <summary>
         /// Checks if the operation was successful or not
         /// </summary>
-        /// <returns>Returns TRUE if Code is <see cref="ServiceResultCode.Ok"/>, <see cref="ServiceResultCode.OkCreated"/>
-        /// or <see cref="ServiceResultCode.OkNoContent"/>, otherwise false
+        /// <returns>Returns TRUE if Code is in the 2xx range (200-299), otherwise false
         /// </returns>
         bool IsSuccessCode { get; }
 
@@ -109,10 +108,7 @@
 
         public IServiceResultError ErrorMessage { get; set; }
 
-        public bool IsSuccessCode =>
-            Code == ServiceResultCode.Ok ||
-            Code == ServiceResultCode.OkCreated ||
-            Code == ServiceResultCode.OkNoContent;
+        public bool IsSuccessCode => Code >= 200 && Code < 300;
 
         public IServiceResult Ok(int code = ServiceResultCode.Ok)
         {

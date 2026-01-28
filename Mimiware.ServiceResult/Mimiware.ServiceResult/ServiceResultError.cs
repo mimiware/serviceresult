@@ -18,7 +18,7 @@
         public string ErrorMessage { get; set; }
 
         /// <summary>
-        /// Create an instance if <see cref="ServiceResultError"/> with a message
+        /// Create an instance of <see cref="ServiceResultError"/> with a message
         /// </summary>
         /// <param name="message">Error message</param>
         public ServiceResultError(string message)
