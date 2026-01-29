@@ -5,40 +5,44 @@
 
 # Service Result
 
-ServiceResult is a minimalistic generic service result library for your service (domain) layer. By using a generic service result, your application will have a good interface towards the service layer. The service layer will also be easy to unit test.
+ServiceResult is a minimalistic generic service result library for your service (domain) layer. By using a generic service result, your application will have a clean interface towards the service layer that will easy to unit test.
 
-The library consists of ~150 lines of code, is 100% unit tested and proven in use since 2008 at multiple big companies. It's well suited for critical enterprise systems.
+The library consists of ~150 lines of code, is 100% unit tested, and proven in production since 2008 at multiple large enterprises. It targets **netstandard2.0** and **net8.0**.
 
-## Add Mimiware.ServiceResult to your project
+## Installation
 
-Add directly to your csproj-file:
+### .NET CLI
 
 ```
+dotnet add package Mimiware.ServiceResult
+```
+
+### Package Manager
+
+```
+Install-Package Mimiware.ServiceResult
+```
+
+### PackageReference
+
+```xml
 <PackageReference Include="Mimiware.ServiceResult" Version="1.4.1" />
 ```
 
-or through Package Manager in Visual Studio:
-```
-Install-Package Mimiware.ServiceResult -Version 1.4.1
-```
+NuGet: https://www.nuget.org/packages/Mimiware.ServiceResult/
 
-or through .NET Cli:
-```
-dotnet add package Mimiware.ServiceResult --version 1.4.1
-```
+## Quick start
 
-## Example usage
-
-Example of a service method in a user service file.
+### Service layer
 
 ```csharp
 public IServiceResult<UsersViewModel> GetUsers(string searchString)
 {
     var result = new ServiceResult<UsersViewModel>();
-    var users = _userRepository.GetUsers(searchString);
 
     try
     {
+        var users = _userRepository.GetUsers(searchString);
         var response = UsersViewModelFactory.Create(users);
         return result.Ok(response);
     }
@@ -49,7 +53,8 @@ public IServiceResult<UsersViewModel> GetUsers(string searchString)
 }
 ```
 
-Corresponding call to the service method from a Controller.
+### Controller layer
+
 ```csharp
 [HttpGet]
 public ActionResult<UsersViewModel> GetUsers(string searchString)
@@ -62,10 +67,10 @@ public ActionResult<UsersViewModel> GetUsers(string searchString)
 }
 ```
 
-## Example of the service layer in a RESTful microservice
+## Architecture
 
 ![Usage Context](docs/usage-context.png)
 
-## Getting started
+## License
 
-ServiceResult is available as NuGet, https://www.nuget.org/packages/Mimiware.ServiceResult/.
+MIT

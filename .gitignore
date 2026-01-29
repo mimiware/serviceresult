@@ -1,5 +1,9 @@
+# VS
 obj/
 bin/
 .vs/
 *.user
-Debug
+
+# AI
+.claude
+**/copilot-instructions.md
