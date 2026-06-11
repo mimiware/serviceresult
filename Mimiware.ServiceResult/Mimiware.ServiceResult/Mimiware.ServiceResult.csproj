@@ -4,14 +4,15 @@
     <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
     <Company>Mimiware</Company>
     <Authors>Mikael Saras &amp; Mikael Johansson</Authors>
-    <PackageTags>Service Results</PackageTags>
+    <PackageTags>service-result;result-pattern;error-handling;service-layer;domain-layer;clean-architecture;operation-result;cqrs;unit-testing;api-response;dotnet</PackageTags>
+    <Description>Minimalistic Result Pattern for .NET service/domain layers. Standardizes success/failure returns with HTTP-compatible status codes, replacing exception-based error handling. ~150 LOC, 100% unit tested, battle-tested since 2008 in critical enterprise systems.</Description>
     <RepositoryUrl>https://github.com/mimiware/serviceresult</RepositoryUrl>
     <NeutralLanguage>en</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Version>1.4.1</Version>
-    <PackageReleaseNotes>Contains more improvements.</PackageReleaseNotes>
+    <PackageReleaseNotes>v1.4.1: Improved XML documentation, added .NET 8 example project, added BadGateway and ServiceUnavailable status codes.</PackageReleaseNotes>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
