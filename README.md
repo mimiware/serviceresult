@@ -9,7 +9,7 @@
 
 Instead of throwing exceptions for expected failures, your service methods return a `ServiceResult` that carries a status code, optional data, and error details. This creates a clean, testable interface between your presentation and domain layers.
 
-The library is ~150 lines of code, 100% unit tested, and has been battle-tested since 2008 in critical enterprise systems at multiple large companies.
+The library is ~150 lines of code with 100% unit test coverage, and has been trusted in production by large enterprises since 2008.
 
 ## Why ServiceResult?
 
@@ -18,16 +18,6 @@ The library is ~150 lines of code, 100% unit tested, and has been battle-tested 
 - **Easy to unit test** — Assert on `IsSuccessCode`, `Code`, `Data`, and `ErrorMessage` instead of catching exceptions
 - **Minimal footprint** — ~150 lines of code with zero dependencies, nothing to learn, nothing to configure
 - **Works with any architecture** — Clean Architecture, Onion Architecture, Vertical Slice, CQRS, or traditional layered
-
-### Comparison with alternatives
-
-| Feature | ServiceResult | FluentResults | ErrorOr | Raw Exceptions |
-|---------|:---:|:---:|:---:|:---:|
-| Lines of code | ~150 | ~2000+ | ~800+ | 0 |
-| HTTP status codes built-in | Yes | No | No | No |
-| Learning curve | Minimal | Moderate | Moderate | None |
-| Zero dependencies | Yes | Yes | Yes | N/A |
-| Proven since | 2008 | 2019 | 2022 | N/A |
 
 ## Installation
 

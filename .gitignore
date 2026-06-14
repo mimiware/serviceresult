@@ -3,3 +3,6 @@ bin/
 .vs/
 *.user
 Debug
+
+# Custom
+.local/

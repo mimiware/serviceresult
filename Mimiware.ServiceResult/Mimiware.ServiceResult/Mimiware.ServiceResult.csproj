@@ -5,7 +5,7 @@
     <Company>Mimiware</Company>
     <Authors>Mikael Saras &amp; Mikael Johansson</Authors>
     <PackageTags>service-result;result-pattern;error-handling;service-layer;domain-layer;clean-architecture;operation-result;cqrs;unit-testing;api-response;dotnet</PackageTags>
-    <Description>Minimalistic Result Pattern for .NET service/domain layers. Standardizes success/failure returns with HTTP-compatible status codes, replacing exception-based error handling. ~150 LOC, 100% unit tested, battle-tested since 2008 in critical enterprise systems.</Description>
+    <Description>Minimalistic Result Pattern for .NET service/domain layers. Standardizes success/failure returns with HTTP-compatible status codes, replacing exception-based error handling. ~150 LOC, 100% unit tested, and trusted in production by large enterprises since 2008.</Description>
     <RepositoryUrl>https://github.com/mimiware/serviceresult</RepositoryUrl>
     <NeutralLanguage>en</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
