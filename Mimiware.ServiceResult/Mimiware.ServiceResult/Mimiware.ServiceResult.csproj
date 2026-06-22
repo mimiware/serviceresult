@@ -5,14 +5,14 @@
     <Company>Mimiware</Company>
     <Authors>Mikael Saras &amp; Mikael Johansson</Authors>
     <PackageTags>service-result;result-pattern;error-handling;service-layer;domain-layer;clean-architecture;operation-result;cqrs;unit-testing;api-response;dotnet</PackageTags>
-    <Description>Minimalistic Result Pattern for .NET service/domain layers. Standardizes success/failure returns with HTTP-compatible status codes, replacing exception-based error handling. ~150 LOC, 100% unit tested, and trusted in production by large enterprises since 2008.</Description>
+    <Description>A lightweight and production-ready Result Pattern for .NET. Return explicit success or failure instead of throwing exceptions, with built-in HTTP-compatible status codes. Perfect for Clean Architecture, CQRS, APIs, and domain-driven applications. Minimal (~150 LOC), easy to adopt, and thoroughly unit tested.</Description>
     <RepositoryUrl>https://github.com/mimiware/serviceresult</RepositoryUrl>
     <NeutralLanguage>en</NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Version>1.4.1</Version>
-    <PackageReleaseNotes>v1.4.1: Improved XML documentation, added .NET 8 example project, added BadGateway and ServiceUnavailable status codes.</PackageReleaseNotes>
+    <Version>1.7.0</Version>
+    <PackageReleaseNotes>v1.7.0: IsSuccessCode now treats any 2xx code (200-299) as success; ServiceResult&lt;T&gt;.Error sets ErrorMessage to null when no message is provided. Improved XML documentation and package metadata.</PackageReleaseNotes>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 

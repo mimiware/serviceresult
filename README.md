@@ -158,6 +158,10 @@ See the [Examples](Examples/) folder for complete working projects:
 - [.NET 8 REST API](Examples/Example.Net8.RestApi.Backend/) — Modern .NET 8 example with dependency injection, services, and controllers
 - [.NET Core 3.1 REST API](Examples/Example.NetCore31.RestApi.Backend/) — Legacy example
 
+## Backed by
+
+ServiceResult is developed and maintained by two Swedish companies with extensive experience in software development: **Wolfberry AB** and **Led T. AB**.
+
 ## Links
 
 - [NuGet Package](https://www.nuget.org/packages/Mimiware.ServiceResult/)
